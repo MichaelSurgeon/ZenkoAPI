@@ -1,4 +1,8 @@
 
+using Microsoft.EntityFrameworkCore;
+using ZenkoAPI.Data;
+using ZenkoAPI.Services;
+
 namespace ZenkoAPI
 {
     public class Program
@@ -6,13 +10,17 @@ namespace ZenkoAPI
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
             // Add services to the container.
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<DatabaseContext>(options =>
+            {
+                options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSQLConnectionString"));
+            });
+            builder.Services.AddScoped<IUserOperationsService, UserOperationsService>();
 
             var app = builder.Build();
 

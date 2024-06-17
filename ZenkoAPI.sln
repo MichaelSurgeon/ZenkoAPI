@@ -5,11 +5,6 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZenkoAPI", "ZenkoAPI.csproj", "{737FE94E-E976-4A22-A17F-CC901E7CADCA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F331B907-4909-48C1-BA5F-125F47147AF9}"
-	ProjectSection(SolutionItems) = preProject
-		appsettings.json = appsettings.json
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

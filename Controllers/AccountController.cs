@@ -16,22 +16,21 @@ namespace ZenkoAPI.Controllers
         }
 
         [HttpPost("createUser")]
-        public ActionResult CreateUser(User user)
+        public async Task<ActionResult> CreateUser(User user)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            _userOperationsService.CreateUserAsync(user);
+            await _userOperationsService.CreateUserAsync(user);
             return Ok();
         }
 
         [HttpGet("getUser")]
-        public ActionResult GetUser(IFormCollection collection)
+        public async Task<ActionResult> GetUser(IFormCollection collection)
         {
-
-            _userOperationsService.GetUserAsync();
+            await _userOperationsService.GetUserAsync();
             return Ok();
         }
 

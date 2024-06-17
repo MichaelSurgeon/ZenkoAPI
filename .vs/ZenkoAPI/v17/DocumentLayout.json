@@ -3,16 +3,36 @@
   "WorkspaceRootPath": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|a:\\_uni\\work project 1\\application\\zenkoapi\\services\\iuseroperationsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:services\\iuseroperationsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|a:\\_uni\\work project 1\\application\\zenkoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|a:\\_uni\\work project 1\\application\\zenkoapi\\services\\useroperationsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:services\\useroperationsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|a:\\_uni\\work project 1\\application\\zenkoapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Migrations\\20240617215346_UpdateIdInuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20240617215346_UpdateIdInuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|a:\\_uni\\work project 1\\application\\zenkoapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Migrations\\20240617214845_UpdateId.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20240617214845_UpdateId.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|a:\\_uni\\work project 1\\application\\zenkoapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|a:\\_uni\\work project 1\\application\\zenkoapi\\data\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:data\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|a:\\_uni\\work project 1\\application\\zenkoapi\\services\\iuseroperationsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:services\\iuseroperationsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,41 +54,106 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IUserOperationsService.cs",
-              "DocumentMoniker": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Services\\IUserOperationsService.cs",
-              "RelativeDocumentMoniker": "Services\\IUserOperationsService.cs",
-              "ToolTip": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Services\\IUserOperationsService.cs",
-              "RelativeToolTip": "Services\\IUserOperationsService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "DocumentIndex": 3,
+              "Title": "20240617215346_UpdateIdInuser.cs",
+              "DocumentMoniker": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Migrations\\20240617215346_UpdateIdInuser.cs",
+              "RelativeDocumentMoniker": "Migrations\\20240617215346_UpdateIdInuser.cs",
+              "ToolTip": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Migrations\\20240617215346_UpdateIdInuser.cs",
+              "RelativeToolTip": "Migrations\\20240617215346_UpdateIdInuser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T21:01:23.92Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAiwAgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T20:56:01.135Z",
+              "WhenOpened": "2024-06-17T21:53:46.517Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "DatabaseContext.cs",
-              "DocumentMoniker": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Data\\DatabaseContext.cs",
-              "RelativeDocumentMoniker": "Data\\DatabaseContext.cs",
-              "ToolTip": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Data\\DatabaseContext.cs",
-              "RelativeToolTip": "Data\\DatabaseContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-17T21:50:16.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "20240617214845_UpdateId.cs",
+              "DocumentMoniker": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Migrations\\20240617214845_UpdateId.cs",
+              "RelativeDocumentMoniker": "Migrations\\20240617214845_UpdateId.cs",
+              "ToolTip": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Migrations\\20240617214845_UpdateId.cs",
+              "RelativeToolTip": "Migrations\\20240617214845_UpdateId.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T20:46:29.166Z",
+              "WhenOpened": "2024-06-17T21:48:45.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAUAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T21:41:10.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABYAAABYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T21:16:17.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserOperationsService.cs",
+              "DocumentMoniker": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Services\\UserOperationsService.cs",
+              "RelativeDocumentMoniker": "Services\\UserOperationsService.cs",
+              "ToolTip": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Services\\UserOperationsService.cs",
+              "RelativeToolTip": "Services\\UserOperationsService.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAABMAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T21:10:42.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IUserOperationsService.cs",
+              "DocumentMoniker": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Services\\IUserOperationsService.cs",
+              "RelativeDocumentMoniker": "Services\\IUserOperationsService.cs",
+              "ToolTip": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Services\\IUserOperationsService.cs",
+              "RelativeToolTip": "Services\\IUserOperationsService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T21:09:37.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABkAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T20:56:01.135Z",
               "EditorCaption": ""
             }
           ]
