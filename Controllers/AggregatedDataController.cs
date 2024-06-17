@@ -2,6 +2,8 @@
 
 namespace ZenkoAPI.Controllers
 {
+    [ApiController]
+    [Route("/api/AggregatedData")]
     public class AggregatedDataController : Controller
     {
         // GET: AggregatedDataController

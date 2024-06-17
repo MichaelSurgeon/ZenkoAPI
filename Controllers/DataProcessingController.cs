@@ -2,6 +2,8 @@
 
 namespace ZenkoAPI.Controllers
 {
+    [ApiController]
+    [Route("/api/DataProcessing")]
     public class DataProcessingController : Controller
     {
         // GET: DataProcessingController

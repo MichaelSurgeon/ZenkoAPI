@@ -1,7 +1,11 @@
-﻿namespace ZenkoAPI.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ZenkoAPI.Models
 {
     public class User
     {
+        [Key]
+        [Required]
         public required int UserId { get; set; }
         public required string Email { get; set; }
         public string? FirstName { get; set; }

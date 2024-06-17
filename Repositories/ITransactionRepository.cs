@@ -1,6 +1,6 @@
 ﻿namespace ZenkoAPI.Repositories
 {
-    public interface ICalculatedDataRepositry
+    public interface ITransactionRepository
     {
     }
 }

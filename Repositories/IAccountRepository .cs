@@ -1,6 +1,6 @@
 ﻿namespace ZenkoAPI.Repositories
 {
-    public interface IAccountRepositry
+    public interface IAccountRepository
     {
     }
 }

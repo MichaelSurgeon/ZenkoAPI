@@ -1,6 +1,6 @@
 ﻿namespace ZenkoAPI.Repositories
 {
-    public interface IFileRepositry
+    public class FileRepository
     {
     }
 }

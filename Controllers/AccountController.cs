@@ -20,7 +20,6 @@ namespace ZenkoAPI.Controllers
 
         // POST: AccountController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult CreateUser(IFormCollection collection)
         {
             try
