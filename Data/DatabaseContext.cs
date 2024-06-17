@@ -5,16 +5,16 @@ namespace ZenkoAPI.Data
 {
     public class DatabaseContext : DbContext
     {
-        private IConfigurationManager _configurationManager;
+        private IConfiguration _configuration;
 
-        public DatabaseContext(IConfigurationManager configurationManager)
+        public DatabaseContext(IConfiguration configuration)
         {
-            _configurationManager = configurationManager;
+            _configuration = configuration;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(_configurationManager.GetConnectionString("PostgreSQLConnectionString"));
+            optionsBuilder.UseNpgsql(_configuration.GetConnectionString("PostgreSQLConnectionString"));
         }
 
         public DbSet<User> Users { get; set; }

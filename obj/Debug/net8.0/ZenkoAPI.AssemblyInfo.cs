@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZenkoAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70bc91230d49727e055504ba4107eaa7dec93d12")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2852dfd1ca429c64a832ce200c237ec9a314ee16")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZenkoAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZenkoAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

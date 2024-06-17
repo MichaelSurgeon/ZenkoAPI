@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\_Repos\\_UniWork\\ZenkoAPI\\ZenkoAPI.csproj": {}
+    "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\ZenkoAPI.csproj": {}
   },
   "projects": {
-    "C:\\_Repos\\_UniWork\\ZenkoAPI\\ZenkoAPI.csproj": {
+    "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\ZenkoAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\_Repos\\_UniWork\\ZenkoAPI\\ZenkoAPI.csproj",
+        "projectUniqueName": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\ZenkoAPI.csproj",
         "projectName": "ZenkoAPI",
-        "projectPath": "C:\\_Repos\\_UniWork\\ZenkoAPI\\ZenkoAPI.csproj",
-        "packagesPath": "C:\\Users\\Michael Surgeon\\.nuget\\packages\\",
-        "outputPath": "C:\\_Repos\\_UniWork\\ZenkoAPI\\obj\\",
+        "projectPath": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\ZenkoAPI.csproj",
+        "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
+        "outputPath": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Michael Surgeon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,9 +22,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/tcg-common/_packaging/QANuget/nuget/v3/index.json": {},
-          "https://pkgs.dev.azure.com/tcg-common/_packaging/TrisusNuget/nuget/v3/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -52,6 +47,12 @@
           "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.6, )"
             },
@@ -83,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

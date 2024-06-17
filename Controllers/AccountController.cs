@@ -1,40 +1,50 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ZenkoAPI.Services;
+using ZenkoAPI.Models;
 
 namespace ZenkoAPI.Controllers
 {
     [ApiController]
-    [Route("/api/Account")]
+    [Route("/api/account")]
     public class AccountController : Controller
     {
-        [HttpGet]
-        public ActionResult GetUserCredentials(string email, string password)
-        {
-            // get user credentials
+        private readonly IUserOperationsService _userOperationsService;
 
-            return Ok();
+        public AccountController(IUserOperationsService userOperationsService)
+        {
+            _userOperationsService = userOperationsService ?? throw new ArgumentNullException(nameof(userOperationsService));
         }
 
-        [HttpPost]
-        public ActionResult CreateUser(IFormCollection collection)
+        [HttpPost("createUser")]
+        public ActionResult CreateUser(User user)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(collection);
+                return BadRequest();
             }
 
-            //create user in database
+            _userOperationsService.CreateUserAsync(user);
             return Ok();
         }
 
-        public ActionResult UpdateUser(int id)
+        [HttpGet("getUser")]
+        public ActionResult GetUser(IFormCollection collection)
         {
-            //update user information
+
+            _userOperationsService.GetUserAsync();
             return Ok();
         }
 
-        public ActionResult DeleteUser(int id)
+        [HttpPost("updateUser")]
+        public ActionResult UpdateUser(User user)
         {
-            // delete user from database
-            return Ok()        }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            _userOperationsService.GetUserAsync();
+            return Ok();
+        }
     }
 }

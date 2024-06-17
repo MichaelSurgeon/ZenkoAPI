@@ -6,9 +6,8 @@ namespace ZenkoAPI.Controllers
     [Route("/api/DataProcessing")]
     public class DataProcessingController : Controller
     {
-
         [HttpPost]
-        public ActionResult CreateCalculation(IFormCollection collection)
+        public ActionResult FileUpload(IFormCollection collection)
         {
             return Ok();
         }
