@@ -1,7 +1,16 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\_Repos\\_UniWork\\test\\ZenkoAPI\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\_Repos\\_UniWork\\ZenkoAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|c:\\_repos\\_uniwork\\zenkoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|c:\\_repos\\_uniwork\\zenkoapi\\zenkoapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:zenkoapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,6 +39,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ZenkoAPI.http",
+              "DocumentMoniker": "C:\\_Repos\\_UniWork\\ZenkoAPI\\ZenkoAPI.http",
+              "RelativeDocumentMoniker": "ZenkoAPI.http",
+              "ToolTip": "C:\\_Repos\\_UniWork\\ZenkoAPI\\ZenkoAPI.http",
+              "RelativeToolTip": "ZenkoAPI.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-06-17T11:06:08.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\_Repos\\_UniWork\\ZenkoAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\_Repos\\_UniWork\\ZenkoAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T11:06:04.792Z",
+              "EditorCaption": ""
             }
           ]
         }
