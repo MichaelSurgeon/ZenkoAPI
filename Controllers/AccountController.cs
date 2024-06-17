@@ -6,42 +6,35 @@ namespace ZenkoAPI.Controllers
     [Route("/api/Account")]
     public class AccountController : Controller
     {
-        // GET: AccountController
-        public ActionResult GetUserCredentials()
+        [HttpGet]
+        public ActionResult GetUserCredentials(string email, string password)
         {
-            return View();
+            // get user credentials
+
+            return Ok();
         }
 
-        // GET: AccountController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: AccountController/Create
         [HttpPost]
         public ActionResult CreateUser(IFormCollection collection)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                return BadRequest(collection);
             }
-            catch
-            {
-                return View();
-            }
+
+            //create user in database
+            return Ok();
         }
 
-        // GET: AccountController/Edit/5
         public ActionResult UpdateUser(int id)
         {
-            return View();
+            //update user information
+            return Ok();
         }
 
-        // GET: AccountController/Delete/5
         public ActionResult DeleteUser(int id)
         {
-            return View();
-        }
+            // delete user from database
+            return Ok()        }
     }
 }

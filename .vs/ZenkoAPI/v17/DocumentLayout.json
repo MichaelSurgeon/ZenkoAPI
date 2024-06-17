@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\_Repos\\_UniWork\\ZenkoAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|c:\\_repos\\_uniwork\\zenkoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|c:\\_repos\\_uniwork\\zenkoapi\\controllers\\dataprocessingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:controllers\\dataprocessingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|c:\\_repos\\_uniwork\\zenkoapi\\zenkoapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:zenkoapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|c:\\_repos\\_uniwork\\zenkoapi\\controllers\\aggregateddatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:controllers\\aggregateddatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|c:\\_repos\\_uniwork\\zenkoapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|c:\\_repos\\_uniwork\\zenkoapi\\models\\aggregatedtransactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:models\\aggregatedtransactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|c:\\_repos\\_uniwork\\zenkoapi\\repositories\\accountrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:repositories\\accountrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,27 +55,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ZenkoAPI.http",
-              "DocumentMoniker": "C:\\_Repos\\_UniWork\\ZenkoAPI\\ZenkoAPI.http",
-              "RelativeDocumentMoniker": "ZenkoAPI.http",
-              "ToolTip": "C:\\_Repos\\_UniWork\\ZenkoAPI\\ZenkoAPI.http",
-              "RelativeToolTip": "ZenkoAPI.http",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-06-17T11:06:08.52Z",
+              "Title": "AggregatedDataController.cs",
+              "DocumentMoniker": "C:\\_Repos\\_UniWork\\ZenkoAPI\\Controllers\\AggregatedDataController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AggregatedDataController.cs",
+              "ToolTip": "C:\\_Repos\\_UniWork\\ZenkoAPI\\Controllers\\AggregatedDataController.cs",
+              "RelativeToolTip": "Controllers\\AggregatedDataController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T15:28:42.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\_Repos\\_UniWork\\ZenkoAPI\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\_Repos\\_UniWork\\ZenkoAPI\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T14:48:11.708Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\_Repos\\_UniWork\\ZenkoAPI\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\_Repos\\_UniWork\\ZenkoAPI\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAzAAAA",
+              "Title": "DataProcessingController.cs",
+              "DocumentMoniker": "C:\\_Repos\\_UniWork\\ZenkoAPI\\Controllers\\DataProcessingController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DataProcessingController.cs",
+              "ToolTip": "C:\\_Repos\\_UniWork\\ZenkoAPI\\Controllers\\DataProcessingController.cs",
+              "RelativeToolTip": "Controllers\\DataProcessingController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-17T11:06:04.792Z",
+              "WhenOpened": "2024-06-17T14:48:10.436Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AccountRepository .cs",
+              "DocumentMoniker": "C:\\_Repos\\_UniWork\\ZenkoAPI\\Repositories\\AccountRepository .cs",
+              "RelativeDocumentMoniker": "Repositories\\AccountRepository .cs",
+              "ToolTip": "C:\\_Repos\\_UniWork\\ZenkoAPI\\Repositories\\AccountRepository .cs",
+              "RelativeToolTip": "Repositories\\AccountRepository .cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T14:48:01.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AggregatedTransactions.cs",
+              "DocumentMoniker": "C:\\_Repos\\_UniWork\\ZenkoAPI\\Models\\AggregatedTransactions.cs",
+              "RelativeDocumentMoniker": "Models\\AggregatedTransactions.cs",
+              "ToolTip": "C:\\_Repos\\_UniWork\\ZenkoAPI\\Models\\AggregatedTransactions.cs",
+              "RelativeToolTip": "Models\\AggregatedTransactions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T14:48:00.946Z",
               "EditorCaption": ""
             }
           ]
