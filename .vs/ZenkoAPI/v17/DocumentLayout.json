@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|a:\\_uni\\work project 1\\application\\zenkoapi\\services\\useroperationsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:services\\useroperationsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|a:\\_uni\\work project 1\\application\\zenkoapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{737FE94E-E976-4A22-A17F-CC901E7CADCA}|ZenkoAPI.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -27,12 +31,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserOperationsService.cs",
+              "DocumentMoniker": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Services\\UserOperationsService.cs",
+              "RelativeDocumentMoniker": "Services\\UserOperationsService.cs",
+              "ToolTip": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Services\\UserOperationsService.cs",
+              "RelativeToolTip": "Services\\UserOperationsService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T22:06:14.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "AccountController.cs",
               "DocumentMoniker": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
               "ToolTip": "A:\\_UNI\\Work Project 1\\Application\\ZenkoAPI\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-17T20:56:01.135Z",
               "EditorCaption": ""
