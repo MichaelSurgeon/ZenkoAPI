@@ -1,20 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ZenkoAPI.Services;
 using ZenkoAPI.Models;
+using ZenkoAPI.Services;
 
 namespace ZenkoAPI.Controllers
 {
     [ApiController]
     [Route("/api/account")]
-    public class AccountController : Controller
+    public class AccountController(IUserOperationsService userOperationsService) : Controller
     {
-        private readonly IUserOperationsService _userOperationsService;
-
-        public AccountController(IUserOperationsService userOperationsService)
-        {
-            _userOperationsService = userOperationsService ?? throw new ArgumentNullException(nameof(userOperationsService));
-        }
-
         [HttpPost("createUser")]
         public async Task<ActionResult> CreateUser(User user)
         {
@@ -23,26 +16,14 @@ namespace ZenkoAPI.Controllers
                 return BadRequest();
             }
 
-            await _userOperationsService.CreateUserAsync(user);
-            return Ok();
-        }
-
-        [HttpGet("getUser")]
-        public async Task<ActionResult> GetUser(IFormCollection collection)
-        {
-            await _userOperationsService.GetUserAsync();
-            return Ok();
-        }
-
-        [HttpPost("updateUser")]
-        public ActionResult UpdateUser(User user)
-        {
-            if (!ModelState.IsValid)
+            var currentUser = await userOperationsService.GetUserBasedOnEmail(user);
+            if (currentUser != null)
             {
-                return BadRequest();
+                return Conflict();
             }
 
-            _userOperationsService.GetUserAsync();
+            await userOperationsService.CreateUserAsync(user);
+
             return Ok();
         }
     }

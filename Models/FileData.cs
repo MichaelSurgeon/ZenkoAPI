@@ -12,6 +12,6 @@ namespace ZenkoAPI.Models
         public decimal FileSize { get; set; }
         public DateTime UploadTime { get; set; }
         [ForeignKey("UserId")]
-        public required int UserId { get; set; }
+        public required Guid UserId { get; set; }
     }
 }

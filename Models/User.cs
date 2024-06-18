@@ -5,7 +5,7 @@ namespace ZenkoAPI.Models
     public class User
     {
         [Key]
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
         public required string Email { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }

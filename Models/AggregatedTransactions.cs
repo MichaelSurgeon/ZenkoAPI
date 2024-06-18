@@ -12,6 +12,6 @@ namespace ZenkoAPI.Models
         public int TransactionCount { get; set; }
         public string MostCommonCategory { get; set; } = string.Empty;
         [ForeignKey("UserId")]
-        public required int UserId { get; set; }
+        public required Guid UserId { get; set; }
     }
 }

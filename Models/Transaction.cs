@@ -15,6 +15,6 @@ namespace ZenkoAPI.Models
         [ForeignKey("CategoryId")]
         public required int CategoryId { get; set; }
         [ForeignKey("UserId")]
-        public required int UserId { get; set; }
+        public required Guid UserId { get; set; }
     }
 }
