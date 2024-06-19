@@ -7,8 +7,10 @@ namespace ZenkoAPI.Controllers
     public class DataProcessingController : Controller
     {
         [HttpPost]
-        public ActionResult FileUpload(IFormCollection collection)
+        public ActionResult FileUpload(IFormFile file)
         {
+       
+
             return Ok();
         }
     }
