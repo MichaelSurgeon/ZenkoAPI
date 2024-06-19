@@ -7,7 +7,7 @@ namespace ZenkoAPI.Services
 {
     public class UserOperationsService(DatabaseContext databaseContext, IAccountRepository accountRepository) : IUserOperationsService
     {
-        public async Task CreateUserAsync(User user)
+        public async Task<bool> CreateUserAsync(User user)
         {
             var newUser = new User()
             {
@@ -19,9 +19,20 @@ namespace ZenkoAPI.Services
                 Address = user.Address
             };
 
-            await accountRepository.AddUserToDatabaseAsync(newUser);
+            return await accountRepository.AddUserToDatabaseAsync(newUser);
         }
 
-        public async Task<User> GetUserBasedOnEmail(User user) => await databaseContext.Users.FirstOrDefaultAsync(row => row.Email == user.Email);
+        public async Task<User> GetUserAsync(User user) 
+        { 
+            var currUser = await accountRepository.GetUserAsync(user);
+            if (currUser == null) 
+            {
+                return null;
+            }
+
+            return currUser;
+        }
+
+        public async Task<bool> DeleteUserAsync(User user) => await accountRepository.DeleteUserFromDatabaseAsync(user);
     }
 }

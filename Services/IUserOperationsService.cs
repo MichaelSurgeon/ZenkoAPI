@@ -5,7 +5,8 @@ namespace ZenkoAPI.Services
 {
     public interface IUserOperationsService
     {
-        Task CreateUserAsync(User user);
-        Task<User> GetUserBasedOnEmail(User user);
+        Task<bool> CreateUserAsync(User user);
+        Task<User> GetUserAsync(User user);
+        Task<bool> DeleteUserAsync(User user);
     }
 }
