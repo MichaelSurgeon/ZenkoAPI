@@ -25,8 +25,7 @@ namespace ZenkoAPI.Controllers
                 return BadRequest($"File is to large it must be under 500kb");
             }
 
-            var userIdGuid = new Guid(userId);
-            var user = await userOperationsService.GetUserByIdAsync(userIdGuid);
+            var user = await userOperationsService.GetUserByIdAsync(new Guid(userId));
             if (user == null)
             {
                 return BadRequest("User not found");
