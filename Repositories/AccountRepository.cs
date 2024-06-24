@@ -58,5 +58,21 @@ namespace ZenkoAPI.Repositories
                 throw new Exception("An error occurred while deleting user", ex);
             }
         }
+
+        public async Task<User> GetUserByIdAsync(Guid userId)
+        {
+            try
+            {
+                return await databaseContext.Users.FirstOrDefaultAsync(row => row.UserId == userId);
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new DbUpdateException("Error deleting user from database", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while deleting user", ex);
+            }
+        }
     }
 }

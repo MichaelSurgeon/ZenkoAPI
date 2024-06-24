@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Net;
-using ZenkoAPI.Models;
+﻿using ZenkoAPI.Models;
 
 namespace ZenkoAPI.Repositories
 {
@@ -9,5 +7,6 @@ namespace ZenkoAPI.Repositories
         Task<bool> AddUserToDatabaseAsync(User user);
         Task<bool> DeleteUserFromDatabaseAsync(User user);
         Task<User> GetUserAsync(User user);
+        Task<User> GetUserByIdAsync(Guid userId);
     }
 }

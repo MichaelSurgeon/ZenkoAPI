@@ -92,11 +92,9 @@ namespace ZenkoAPI.Migrations
 
             modelBuilder.Entity("ZenkoAPI.Models.FileData", b =>
                 {
-                    b.Property<int>("FileId")
+                    b.Property<Guid>("FileId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("FileId"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("FileName")
                         .IsRequired()
@@ -118,14 +116,13 @@ namespace ZenkoAPI.Migrations
 
             modelBuilder.Entity("ZenkoAPI.Models.Transaction", b =>
                 {
-                    b.Property<int>("TransactionId")
+                    b.Property<Guid>("TransactionId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("uuid");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("TransactionId"));
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("integer");
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<decimal>("TransactionAmount")
                         .HasColumnType("numeric");

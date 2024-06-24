@@ -8,5 +8,6 @@ namespace ZenkoAPI.Services
         Task<bool> CreateUserAsync(User user);
         Task<User> GetUserAsync(User user);
         Task<bool> DeleteUserAsync(User user);
+        Task<User> GetUserByIdAsync(Guid userId);
     }
 }

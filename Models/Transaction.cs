@@ -7,13 +7,12 @@ namespace ZenkoAPI.Models
     {
         [Key]
         [Required]
-        public required int TransactionId { get; set; }
+        public required Guid TransactionId { get; set; }
         public required string TransactionName { get; set; } = string.Empty;
         public required decimal TransactionAmount { get; set; } = 0;
         public string TransactionLocation { get; set; } = string.Empty;
         public DateTime TransactionDate { get; set; } = DateTime.MinValue;
-        [ForeignKey("CategoryId")]
-        public required int CategoryId { get; set; }
+        public string CategoryName { get; set; } = string.Empty;
         [ForeignKey("UserId")]
         public required Guid UserId { get; set; }
     }

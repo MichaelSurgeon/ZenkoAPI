@@ -7,7 +7,7 @@ namespace ZenkoAPI.Models
     {
         [Key]
         [Required]
-        public required int FileId { get; set; }
+        public required Guid FileId { get; set; }
         public string FileName { get; set; } = string.Empty;
         public decimal FileSize { get; set; }
         public DateTime UploadTime { get; set; }

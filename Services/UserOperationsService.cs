@@ -21,7 +21,7 @@ namespace ZenkoAPI.Services
         }
 
         public async Task<User> GetUserAsync(User user) => await accountRepository.GetUserAsync(user);
-
+        public async Task<User> GetUserByIdAsync(Guid userId) => await accountRepository.GetUserByIdAsync(userId);
         public async Task<bool> DeleteUserAsync(User user) => await accountRepository.DeleteUserFromDatabaseAsync(user);
     }
 }
