@@ -47,7 +47,7 @@ namespace ZenkoAPI.Repositories
         {
             try
             {
-                return await databaseContext.Users.FirstOrDefaultAsync(row => row.Email == user.Email);
+                return await databaseContext.Users.FirstOrDefaultAsync(row => row.Email.ToLower() == user.Email.ToLower());
             }
             catch (DbUpdateException ex)
             {

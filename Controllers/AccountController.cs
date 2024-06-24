@@ -23,7 +23,7 @@ namespace ZenkoAPI.Controllers
             }
 
             var result = await userOperationsService.CreateUserAsync(user);
-            if (!result) 
+            if (!result)
             {
                 return StatusCode(500);
             }
@@ -31,7 +31,7 @@ namespace ZenkoAPI.Controllers
             return Ok();
         }
 
-        [HttpPost("getUser")]
+        [HttpGet("getUser")]
         public async Task<ActionResult<User>> GetUser(User user)
         {
             if (!ModelState.IsValid)
@@ -40,14 +40,14 @@ namespace ZenkoAPI.Controllers
             }
 
             var retrievedUser = await userOperationsService.GetUserAsync(user);
-            if(retrievedUser == null)
+            if (retrievedUser == null)
             {
                 return NotFound();
             }
 
-            if (retrievedUser.Password != user.Password) 
+            if (retrievedUser.Password != user.Password)
             {
-                return Unauthorized();    
+                return Unauthorized();
             }
 
             return retrievedUser;
@@ -67,8 +67,8 @@ namespace ZenkoAPI.Controllers
                 return NotFound();
             }
 
-            var result = await userOperationsService.DeleteUserAsync(user);
-            if(!result)
+            var result = await userOperationsService.DeleteUserAsync(retrievedUser);
+            if (!result)
             {
                 return StatusCode(500);
             }
