@@ -16,7 +16,7 @@ namespace ZenkoAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<DatabaseContext>(
-                options => options.UseNpgsql(builder.Configuration["PostgreSQLConnectionString"]));
+                options => options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSQLConnectionString")));
             builder.Services.AddScoped<IUserOperationsService, UserOperationsService>();
             builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 
