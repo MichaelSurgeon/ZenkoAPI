@@ -31,7 +31,7 @@ namespace ZenkoAPI.Controllers
                 return BadRequest("User not found");
             }
 
-            await fileUploadService.DeleteTransactionAndFileInformationAsync(new Guid(userId));
+            await fileUploadService.DeleteTransactionAsync(new Guid(userId));
             await fileUploadService.AddFileMetaDataToDatabaseAsync(file, new Guid(userId));
             await fileUploadService.AddTransactionToDatabase(file.OpenReadStream(), user.UserId);
 

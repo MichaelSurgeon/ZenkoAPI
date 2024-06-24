@@ -74,9 +74,8 @@ namespace ZenkoAPI.Services
             await transactionRepository.AddFileMetadataToDatabase(fileMetadata);
         }
 
-        public async Task DeleteTransactionAndFileInformationAsync(Guid userId)
+        public async Task DeleteTransactionAsync(Guid userId)
         {
-            await transactionRepository.DeleteFileInformationByUserIdAsync(userId);
             await transactionRepository.DeleteTransactionsByUserIdAsync(userId);
         }
 
