@@ -13,6 +13,7 @@ namespace ZenkoAPI.Services
         {
             var validator = new TransactionDTOValidator();
 
+            var errors = new List<string>();
             using (var reader = new StreamReader(fileStream))
             using (var csvReader = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
@@ -31,11 +32,18 @@ namespace ZenkoAPI.Services
                                 TransactionAmount = decimal.Parse(record.Amount),
                                 TransactionDate = DateTime.Parse(record.Date).ToUniversalTime(),
                                 TransactionLocation = record.Location,
-                                CategoryName = record.Name,
+                                CategoryName = record.Category,
                                 UserId = userId
                             };
 
                             await transactionRepository.AddTransactionToDatabaseAsync(transformedTransaction);
+                        }
+                        else
+                        {
+                            foreach (var error in validationResult.Errors)
+                            {
+                                errors.Add(error.ErrorMessage + " on row number: " + csvReader.Parser.Row);
+                            }
                         }
                     }
                     catch (Exception ex)
@@ -44,6 +52,11 @@ namespace ZenkoAPI.Services
                         continue;
                     }
                 }
+            }
+
+            foreach (var error in errors)
+            {
+                Console.WriteLine(error);
             }
         }
 
