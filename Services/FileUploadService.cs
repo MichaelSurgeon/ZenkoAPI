@@ -20,7 +20,7 @@ namespace ZenkoAPI.Services
             using (var reader = new StreamReader(fileStream))
             using (var csvReader = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                while (csvReader.Read())
+                while (await csvReader.ReadAsync())
                 {
                     try
                     {
