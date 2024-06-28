@@ -2,7 +2,7 @@
 
 # Introduction
 
-This API has been designed and written for my first year univeristy project, it will feed the front end that I make in react at a later data. Currently this API will handle all the crud operations for my project. This API utilises EntityFramework core in order to make updates to the local database, this project is currently set up for PostgreSQL however it can be changed to suit whatever DB you choose aslong as its supported by EF core. This ReadMe will include all the information to get this API set up locally to run. 
+This API has been designed and written for my first year univeristy project, it will feed the front end that I make in react at a later date. Currently this API will handle all the crud operations for my project. This API utilises EntityFramework core in order to make updates to the local database, this project is currently set up for PostgreSQL however it can be changed to suit whatever DB you choose as long as its supported by EF core. This ReadMe will include all the information to get this API set up locally to run. 
 
 # Local Setup 
 
