@@ -5,7 +5,7 @@ namespace ZenkoAPI.Controllers
 {
     [ApiController]
     [Route("/api/dataprocessing")]
-    public class DataProcessingController(IUserOperationsService userOperationsService, IFileUploadService fileUploadService) : Controller
+    public class FileHandlingController(IUserOperationsService userOperationsService, IFileUploadService fileUploadService) : Controller
     {
         [HttpPost("fileUpload")]
         public async Task<ActionResult> FileUpload(IFormFile file, string userId)
@@ -31,7 +31,7 @@ namespace ZenkoAPI.Controllers
                 return BadRequest("User not found");
             }
 
-            await fileUploadService.DeleteTransactionAsync(new Guid(userId));
+            await fileUploadService.DeleteTransactionsByIdAsync(new Guid(userId));
             await fileUploadService.AddFileMetaDataToDatabaseAsync(file, new Guid(userId));
             await fileUploadService.AddTransactionToDatabase(file.OpenReadStream(), user.UserId);
 

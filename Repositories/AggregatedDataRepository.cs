@@ -4,7 +4,7 @@ using ZenkoAPI.Models;
 
 namespace ZenkoAPI.Repositories
 {
-    public class CalculatedDataRepository(DatabaseContext databaseContext) : ICalculatedDataRepository
+    public class AggregatedDataRepository(DatabaseContext databaseContext) : IAggregatedDataRepository
     {
         public Task<List<Transaction>> GetUserTransactionsById(Guid userId)
         {

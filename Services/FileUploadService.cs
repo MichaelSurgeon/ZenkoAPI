@@ -11,6 +11,7 @@ namespace ZenkoAPI.Services
     {
         public async Task AddTransactionToDatabase(Stream fileStream, Guid userId)
         {
+            // could probably speed up inserts for mass amound of data using parrallel batching would be quicker
             var validator = new TransactionDTOValidator();
             var batchSize = 250;
             List<Transaction> transactionsBatch = [];
@@ -74,7 +75,7 @@ namespace ZenkoAPI.Services
             await transactionRepository.AddFileMetadataToDatabase(fileMetadata);
         }
 
-        public async Task DeleteTransactionAsync(Guid userId)
+        public async Task DeleteTransactionsByIdAsync(Guid userId)
         {
             await transactionRepository.DeleteTransactionsByUserIdAsync(userId);
         }

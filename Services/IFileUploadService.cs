@@ -4,6 +4,6 @@
     {
         Task AddTransactionToDatabase(Stream file, Guid userId);
         Task AddFileMetaDataToDatabaseAsync(IFormFile file, Guid userId);
-        Task DeleteTransactionAsync(Guid userId);
+        Task DeleteTransactionsByIdAsync(Guid userId);
     }
 }

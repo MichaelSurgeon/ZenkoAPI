@@ -3,7 +3,7 @@ using ZenkoAPI.Repositories;
 
 namespace ZenkoAPI.Services
 {
-    public class CalculationService(ICalculatedDataRepository calculatedDataRepository) : ICalculationService
+    public class CalculationService(IAggregatedDataRepository calculatedDataRepository) : ICalculationService
     {
         public async Task<bool> CreateAggregatedDataAsync(Guid userId)
         {
