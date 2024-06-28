@@ -63,7 +63,7 @@ namespace ZenkoAPI.Controllers
 
             var retrievedUser = await userOperationsService.GetUserAsync(user);
             if (retrievedUser == null)
-            {
+            { 
                 return NotFound();
             }
 

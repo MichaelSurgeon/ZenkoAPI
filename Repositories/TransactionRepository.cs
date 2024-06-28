@@ -6,11 +6,11 @@ namespace ZenkoAPI.Repositories
 {
     public class TransactionRepository(DatabaseContext databaseContext) : ITransactionRepository
     {
-        public async Task AddTransactionToDatabaseAsync(Transaction transaction)
+        public async Task AddTransactionsToDatabaseAsync(List<Transaction> transactions)
         {
             try
             {
-                await databaseContext.AddAsync(transaction);
+                await databaseContext.AddRangeAsync(transactions);
                 await databaseContext.SaveChangesAsync();
             }
             catch (DbUpdateException ex)

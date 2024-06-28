@@ -7,8 +7,8 @@ namespace ZenkoAPI.Models
     {
         [Key]
         [Required]
-        public required int Id { get; set; }
-        public int TotalSpend { get; set; }
+        public required Guid Id { get; set; }
+        public decimal TotalSpend { get; set; }
         public int TransactionCount { get; set; }
         public string MostCommonCategory { get; set; } = string.Empty;
         [ForeignKey("UserId")]

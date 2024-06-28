@@ -12,6 +12,8 @@ namespace ZenkoAPI.Services
         public async Task AddTransactionToDatabase(Stream fileStream, Guid userId)
         {
             var validator = new TransactionDTOValidator();
+            var batchSize = 250;
+            List<Transaction> transactionsBatch = [];
 
             var errors = new List<string>();
             using (var reader = new StreamReader(fileStream))
@@ -36,13 +38,11 @@ namespace ZenkoAPI.Services
                                 UserId = userId
                             };
 
-                            await transactionRepository.AddTransactionToDatabaseAsync(transformedTransaction);
-                        }
-                        else
-                        {
-                            foreach (var error in validationResult.Errors)
+                            transactionsBatch.Add(transformedTransaction);
+                            if (transactionsBatch.Count >= batchSize)
                             {
-                                errors.Add(error.ErrorMessage + " on row number: " + csvReader.Parser.Row);
+                                await transactionRepository.AddTransactionsToDatabaseAsync(transactionsBatch);
+                                transactionsBatch.Clear();
                             }
                         }
                     }
@@ -52,11 +52,11 @@ namespace ZenkoAPI.Services
                         continue;
                     }
                 }
-            }
-
-            foreach (var error in errors)
-            {
-                Console.WriteLine(error);
+                if(transactionsBatch.Count > 0)
+                {
+                    await transactionRepository.AddTransactionsToDatabaseAsync(transactionsBatch);
+                    transactionsBatch.Clear();
+                }
             }
         }
 

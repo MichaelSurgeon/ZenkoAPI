@@ -6,7 +6,7 @@ namespace ZenkoAPI.Models
     {
         [Key]
         [Required]
-        public required int CategoryId { get; set; }
+        public required Guid CategoryId { get; set; }
         public required string CategoryName { get; set; }
     }
 }

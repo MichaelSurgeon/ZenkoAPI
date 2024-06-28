@@ -1,14 +1,33 @@
-﻿namespace ZenkoAPI.Services
+﻿using ZenkoAPI.Models;
+using ZenkoAPI.Repositories;
+
+namespace ZenkoAPI.Services
 {
-    public class CalculationService
+    public class CalculationService(ICalculatedDataRepository calculatedDataRepository) : ICalculationService
     {
-        public async Task CreateAggregatedDataAsync(Guid userId)
+        public async Task<bool> CreateAggregatedDataAsync(Guid userId)
         {
-            // get id's from data base for transactions (this can be done by yielding so that we only get one at a time possibiliy)
-            // create a loop to loop through each id and get the transaction row
-            // populate aggregated info
-            // store in database
-            // repeat
+            var transactions = await calculatedDataRepository.GetUserTransactionsById(userId);
+
+            if(transactions.Any())
+            {
+                var aggregatedTransaction = new AggregatedTransactions()
+                {
+                    Id = new Guid(),
+                    TotalSpend = transactions.Sum(x => x.TransactionAmount),
+                    MostCommonCategory = transactions.GroupBy(c => c.CategoryName).OrderByDescending(group => group.Count()).First().Key,
+                    TransactionCount = transactions.Count(),
+                    UserId = userId
+                };
+
+                var result = await calculatedDataRepository.AddAggregatedDataAsync(aggregatedTransaction);
+                if (!result)
+                {
+                    return false;
+                }
+                return true;
+            }
+            return false;
         }
     }
 }

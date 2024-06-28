@@ -7,7 +7,7 @@ namespace ZenkoAPI.Models
     {
         [Key]
         [Required]
-        public required int Id { get; set; }
+        public required Guid Id { get; set; }
         [ForeignKey("CategoryId")]
         public required int CategoryId { get; set; }
         public int AmountSpent { get; set; }

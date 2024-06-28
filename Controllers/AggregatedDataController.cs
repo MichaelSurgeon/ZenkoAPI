@@ -5,25 +5,27 @@ namespace ZenkoAPI.Controllers
 {
     [ApiController]
     [Route("/api/aggregatedData")]
-    public class AggregatedDataController(IUserOperationsService userOperationsService) : Controller
+    public class AggregatedDataController(IUserOperationsService userOperationsService, ICalculationService calculationService) : Controller
     {
-
-        [HttpPost("createAnalysis")]
-        public ActionResult AnalyseData(Guid userId)
+        [HttpPost("create")]
+        public async Task<ActionResult> AnalyseData(Guid userId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = userOperationsService.GetUserByIdAsync(userId);
+            var user = await userOperationsService.GetUserByIdAsync(userId);
             if (user == null)
             {
                 return BadRequest(ModelState);
             }
 
-            //call calculation service to create aggregated data and populate database table
-
+            var result = await calculationService.CreateAggregatedDataAsync(userId);
+            if(!result)  
+            {
+                return BadRequest("Error occured during calcualtion");
+            }
             return Ok();
         }
 
@@ -31,12 +33,6 @@ namespace ZenkoAPI.Controllers
         public ActionResult GetAggregatedData()
         {
             return View();
-        }
-
-        [HttpDelete]
-        public ActionResult DeleteAggregatedData(int id)
-        {
-            return Ok();
         }
     }
 }

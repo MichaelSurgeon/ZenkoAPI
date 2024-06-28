@@ -24,18 +24,16 @@ namespace ZenkoAPI.Migrations
 
             modelBuilder.Entity("ZenkoAPI.Models.AggregatedTransactions", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("MostCommonCategory")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("TotalSpend")
-                        .HasColumnType("integer");
+                    b.Property<decimal>("TotalSpend")
+                        .HasColumnType("numeric");
 
                     b.Property<int>("TransactionCount")
                         .HasColumnType("integer");
@@ -50,11 +48,9 @@ namespace ZenkoAPI.Migrations
 
             modelBuilder.Entity("ZenkoAPI.Models.CalculatedCategories", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<int>("AmountSpent")
                         .HasColumnType("integer");
@@ -75,11 +71,9 @@ namespace ZenkoAPI.Migrations
 
             modelBuilder.Entity("ZenkoAPI.Models.Category", b =>
                 {
-                    b.Property<int>("CategoryId")
+                    b.Property<Guid>("CategoryId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CategoryId"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("CategoryName")
                         .IsRequired()

@@ -4,7 +4,7 @@ namespace ZenkoAPI.Repositories
 {
     public interface ITransactionRepository
     {
-        Task AddTransactionToDatabaseAsync(Transaction transaction);
+        Task AddTransactionsToDatabaseAsync(List<Transaction> transactions);
         Task AddFileMetadataToDatabase(FileData fileInfo);
         Task DeleteFileInformationByUserIdAsync(Guid userId);
         Task DeleteTransactionsByUserIdAsync(Guid userId);

@@ -20,7 +20,7 @@ namespace ZenkoAPI.Controllers
                 return BadRequest("Invaild FileType Please Only Upload CSV format");
             }
 
-            if (file.Length > 200_000)
+            if (file.Length > 500_000)
             {
                 return BadRequest($"File is to large it must be under 500kb");
             }

@@ -1,13 +1,12 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace ZenkoAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class initialMigration : Migration
+    public partial class initalMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,9 +15,8 @@ namespace ZenkoAPI.Migrations
                 name: "AggregatedTransactions",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    TotalSpend = table.Column<int>(type: "integer", nullable: false),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    TotalSpend = table.Column<decimal>(type: "numeric", nullable: false),
                     TransactionCount = table.Column<int>(type: "integer", nullable: false),
                     MostCommonCategory = table.Column<string>(type: "text", nullable: false),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false)
@@ -32,8 +30,7 @@ namespace ZenkoAPI.Migrations
                 name: "CalculatedCategories",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     CategoryId = table.Column<int>(type: "integer", nullable: false),
                     AmountSpent = table.Column<int>(type: "integer", nullable: false),
                     TransactionCount = table.Column<int>(type: "integer", nullable: false),
@@ -48,8 +45,7 @@ namespace ZenkoAPI.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    CategoryId = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CategoryId = table.Column<Guid>(type: "uuid", nullable: false),
                     CategoryName = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>

@@ -12,8 +12,8 @@ using ZenkoAPI.Data;
 namespace ZenkoAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240624135917_initialMigration")]
-    partial class initialMigration
+    [Migration("20240628212319_initalMigration")]
+    partial class initalMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,18 +27,16 @@ namespace ZenkoAPI.Migrations
 
             modelBuilder.Entity("ZenkoAPI.Models.AggregatedTransactions", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("MostCommonCategory")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("TotalSpend")
-                        .HasColumnType("integer");
+                    b.Property<decimal>("TotalSpend")
+                        .HasColumnType("numeric");
 
                     b.Property<int>("TransactionCount")
                         .HasColumnType("integer");
@@ -53,11 +51,9 @@ namespace ZenkoAPI.Migrations
 
             modelBuilder.Entity("ZenkoAPI.Models.CalculatedCategories", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<int>("AmountSpent")
                         .HasColumnType("integer");
@@ -78,11 +74,9 @@ namespace ZenkoAPI.Migrations
 
             modelBuilder.Entity("ZenkoAPI.Models.Category", b =>
                 {
-                    b.Property<int>("CategoryId")
+                    b.Property<Guid>("CategoryId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CategoryId"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("CategoryName")
                         .IsRequired()
