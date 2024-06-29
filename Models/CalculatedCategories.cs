@@ -12,5 +12,7 @@ namespace ZenkoAPI.Models
         public decimal AmountSpent { get; set; }
         public int TransactionCount { get; set; }
         public decimal PercentOfIncome { get; set; }
+        [ForeignKey("UserId")]
+        public Guid UserId { get; set; }
     }
 }

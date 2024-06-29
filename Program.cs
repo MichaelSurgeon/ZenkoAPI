@@ -27,7 +27,7 @@ namespace ZenkoAPI
             builder.Services.AddScoped<IFileUploadService, FileUploadService>();
             builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
             builder.Services.AddScoped<ICalculationService, CalculationService>();
-            builder.Services.AddScoped<IAggregatedDataRepository, AggregatedDataRepository>();
+            builder.Services.AddScoped<ICalculationRepository, CalculationRepository>();
             builder.Services.AddScoped<ICachingService, CachingService>();
             builder.Services.AddFluentValidationAutoValidation();
             builder.Services.AddFluentValidationClientsideAdapters();
