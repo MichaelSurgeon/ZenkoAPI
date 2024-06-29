@@ -19,7 +19,8 @@ This API has been designed and written for my first year univeristy project, it 
   },
   "ConnectionStrings": {
     "PostgreSQLConnectionString": "YOUR_CONNECTION_STRING"
-  }
+  },
+  "TransactionsCacheKey":  "TransactionsCacheKey"
 }
 ```
 
