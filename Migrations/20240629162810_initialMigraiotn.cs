@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ZenkoAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class initalMigration : Migration
+    public partial class initialMigraiotn : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,8 +31,8 @@ namespace ZenkoAPI.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    CategoryId = table.Column<int>(type: "integer", nullable: false),
-                    AmountSpent = table.Column<int>(type: "integer", nullable: false),
+                    CategoryName = table.Column<string>(type: "text", nullable: false),
+                    AmountSpent = table.Column<decimal>(type: "numeric", nullable: false),
                     TransactionCount = table.Column<int>(type: "integer", nullable: false),
                     PercentOfIncome = table.Column<decimal>(type: "numeric", nullable: false)
                 },

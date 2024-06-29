@@ -29,7 +29,7 @@ namespace ZenkoAPI.Controllers
                 return BadRequest("Unable to delete historical data");
             }
             
-            var result = await calculationService.CreateAggregatedTransactionDataAsync(userId);
+            var result = await calculationService.CreateCalculatedData(userId);
             if(!result)  
             {
                 return BadRequest("Error occured during calcualtion");
@@ -52,7 +52,7 @@ namespace ZenkoAPI.Controllers
                 return NotFound("User not found");
             }
 
-            var aggregatedTransactionResult = await calculationService.GetAggregatedTransactionData(userId);
+            var aggregatedTransactionResult = await calculationService.GetCalculatedData(userId);
             if(aggregatedTransactionResult == null)
             {
                 return NotFound("No aggregated transactions found");

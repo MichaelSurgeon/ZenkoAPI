@@ -52,11 +52,12 @@ namespace ZenkoAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<int>("AmountSpent")
-                        .HasColumnType("integer");
+                    b.Property<decimal>("AmountSpent")
+                        .HasColumnType("numeric");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("integer");
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<decimal>("PercentOfIncome")
                         .HasColumnType("numeric");

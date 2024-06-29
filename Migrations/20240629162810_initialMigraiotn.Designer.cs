@@ -12,8 +12,8 @@ using ZenkoAPI.Data;
 namespace ZenkoAPI.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240628212319_initalMigration")]
-    partial class initalMigration
+    [Migration("20240629162810_initialMigraiotn")]
+    partial class initialMigraiotn
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,11 +55,12 @@ namespace ZenkoAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<int>("AmountSpent")
-                        .HasColumnType("integer");
+                    b.Property<decimal>("AmountSpent")
+                        .HasColumnType("numeric");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("integer");
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<decimal>("PercentOfIncome")
                         .HasColumnType("numeric");

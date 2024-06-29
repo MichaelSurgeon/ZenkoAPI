@@ -38,6 +38,20 @@ namespace ZenkoAPI.Repositories
             }
         }
 
+        public async Task<bool> AddAggregatedCalculationTransactionDataAsync(CalculatedCategories aggregatedTransaction)
+        {
+            try
+            {
+                await databaseContext.CalculatedCategories.AddAsync(aggregatedTransaction);
+                await databaseContext.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public async Task<bool> DeleteAggregatedTransactionDataAsync(Guid userId)
         {
             try

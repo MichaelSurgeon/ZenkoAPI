@@ -7,10 +7,9 @@ namespace ZenkoAPI.Models
     {
         [Key]
         [Required]
-        public required Guid Id { get; set; }
-        [ForeignKey("CategoryId")]
-        public required int CategoryId { get; set; }
-        public int AmountSpent { get; set; }
+        public Guid Id { get; set; }
+        public string CategoryName { get; set; }
+        public decimal AmountSpent { get; set; }
         public int TransactionCount { get; set; }
         public decimal PercentOfIncome { get; set; }
     }

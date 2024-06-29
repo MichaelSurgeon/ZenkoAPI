@@ -4,8 +4,8 @@ namespace ZenkoAPI.Services
 {
     public interface ICalculationService
     {
-        Task<bool> CreateAggregatedTransactionDataAsync(Guid userId);
-        Task<AggregatedTransactions> GetAggregatedTransactionData(Guid userId);
+        Task<bool> CreateCalculatedData(Guid userId);
+        Task<AggregatedTransactions> GetCalculatedData(Guid userId);
         Task<bool> DeleteCalculatedDataAsync(Guid userId);
     }
 }
