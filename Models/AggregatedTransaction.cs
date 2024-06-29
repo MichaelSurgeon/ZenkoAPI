@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ZenkoAPI.Models
 {
-    public class AggregatedTransactions
+    public class AggregatedTransaction
     {
         [Key]
         [Required]

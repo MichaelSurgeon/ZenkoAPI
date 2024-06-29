@@ -9,73 +9,42 @@ namespace ZenkoAPI.Repositories
     {
         public async Task AddTransactionsToDatabaseAsync(List<Transaction> transactions)
         {
-            try
-            {
-                var cacheKey = configuration.GetValue<string>("TransactionsCacheKey");
-                await databaseContext.AddRangeAsync(transactions);
-                await databaseContext.SaveChangesAsync();
-                cachingService.ClearCache(cacheKey);
-                cachingService.SetCache(cacheKey, transactions);
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new DbUpdateException("Error adding transaction to database", ex);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("An error occurred while adding transaction", ex);
-            }
+            var cacheKey = configuration.GetValue<string>("TransactionsCacheKey");
+            await databaseContext.AddRangeAsync(transactions);
+            await databaseContext.SaveChangesAsync();
+            cachingService.ClearCache(cacheKey);
+            cachingService.SetCache(cacheKey, transactions);
         }
 
         public async Task AddFileMetadataToDatabase(FileData fileInfo)
         {
-            try
-            {
-                await databaseContext.FileData.AddAsync(fileInfo);
-                await databaseContext.SaveChangesAsync();
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new DbUpdateException("Error adding fileInfo to database", ex);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("An error occurred while adding fileInfo", ex);
-            }
+            await databaseContext.FileData.AddAsync(fileInfo);
+            await databaseContext.SaveChangesAsync();
+        }
+
+        public async Task AddAggregatedTransactionDataAsync(AggregatedTransaction aggregatedTransaction)
+        {
+            await databaseContext.AggregatedTransactions.AddAsync(aggregatedTransaction);
+            await databaseContext.SaveChangesAsync();
         }
 
         public async Task DeleteFileInformationByUserIdAsync(Guid userId)
         {
-            try
-            {
-                await databaseContext.FileData.Where(t => t.UserId == userId).ExecuteDeleteAsync();
-                await databaseContext.SaveChangesAsync();
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new DbUpdateException("Error adding fileInfo to database", ex);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("An error occurred while adding fileInfo", ex);
-            }
+            await databaseContext.FileData.Where(t => t.UserId == userId).ExecuteDeleteAsync();
+            await databaseContext.SaveChangesAsync();
         }
 
-        public async Task DeleteTransactionsByUserIdAsync(Guid userId)
-        {
-            try
-            {
+        public async Task DeleteTransactionsByUserIdAsync(Guid userId) =>
                 await databaseContext.Transactions.Where(t => t.UserId == userId).ExecuteDeleteAsync();
-                await databaseContext.SaveChangesAsync();
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new DbUpdateException("Error adding fileInfo to database", ex);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("An error occurred while adding fileInfo", ex);
-            }
-        }
+
+        public async Task DeleteAggregatedTransactionDataAsync(Guid userId) =>
+                await databaseContext.AggregatedTransactions.Where(x => x.UserId == userId).ExecuteDeleteAsync();
+
+        public async Task<List<Transaction>> GetTransactionsAsync(Guid userId) 
+            => await databaseContext.Transactions.Where(x => x.UserId == userId).ToListAsync();
+
+        public async Task<AggregatedTransaction> GetAggregatedTransactionDataAsync(Guid userId) 
+            => await databaseContext.AggregatedTransactions.Where(x => x.UserId == userId).FirstAsync();
+
     }
 }

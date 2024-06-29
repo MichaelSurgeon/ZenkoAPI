@@ -4,10 +4,10 @@ using ZenkoAPI.Services;
 namespace ZenkoAPI.Controllers
 {
     [ApiController]
-    [Route("/api/dataprocessing")]
+    [Route("/api/file")]
     public class FileHandlingController(IUserOperationsService userOperationsService, IFileUploadService fileUploadService) : Controller
     {
-        [HttpPost("fileUpload")]
+        [HttpPost("uploadFile")]
         public async Task<ActionResult> FileUpload(IFormFile file, string userId)
         {
             if (!ModelState.IsValid)

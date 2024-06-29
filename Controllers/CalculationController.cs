@@ -23,8 +23,7 @@ namespace ZenkoAPI.Controllers
                 return NotFound("User not found");
             }
 
-            await calculationService.DeleteCalculatedDataAsync(userId);
-           
+            await calculationService.DeleteCalculatedDataAsync(userId);    
             var result = await calculationService.CreateCalculatedData(userId);
             if(!result)  
             {
@@ -32,29 +31,6 @@ namespace ZenkoAPI.Controllers
             }
 
             return Ok();
-        }
-
-        [HttpGet("getAggregatedData")]
-        public async Task<ActionResult<AggregatedTransactions>> GetTransactionAggregatedData(Guid userId)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-             
-            var user = await GetUser(userId);
-            if (user == null)
-            {
-                return NotFound("User not found");
-            }
-
-            var aggregatedTransactionResult = await calculationService.GetCalculatedTransactionDataAsync(userId);
-            if(aggregatedTransactionResult == null)
-            {
-                return NotFound("No aggregated transactions found");
-            }
-
-            return aggregatedTransactionResult;
         }
 
         [HttpGet("getCalculatedCategories")]
@@ -81,6 +57,5 @@ namespace ZenkoAPI.Controllers
         }
 
         private async Task<User> GetUser(Guid userId) => await userOperationsService.GetUserByIdAsync(userId);
-
     }
 }

@@ -3,7 +3,7 @@ using ZenkoAPI.Repositories;
 
 namespace ZenkoAPI.Services
 {
-    public class CalculationService(ICalculationRepository calculatedDataRepository, ICachingService cachingService,
+    public class CalculationService(ICalculationRepository calculatedDataRepository, ITransactionRepository transactionRepository, ICachingService cachingService,
         IConfiguration configuration) : ICalculationService
     {
         public async Task<bool> CreateCalculatedData(Guid userId)
@@ -12,7 +12,7 @@ namespace ZenkoAPI.Services
 
             if (transactions.Count > 0)
             {
-                var aggregatedTransaction = new AggregatedTransactions()
+                var aggregatedTransaction = new AggregatedTransaction()
                 {
                     Id = new Guid(),
                     TotalSpend = transactions.Sum(x => x.TransactionAmount),
@@ -21,29 +21,26 @@ namespace ZenkoAPI.Services
                     UserId = userId
                 };
 
-                await calculatedDataRepository.AddAggregatedTransactionDataAsync(aggregatedTransaction);
+                await transactionRepository.AddAggregatedTransactionDataAsync(aggregatedTransaction);
                 await CalculatedCategoriesAsync(transactions, userId);
                 return true;
             }
             return false;
         }
 
-        public async Task<AggregatedTransactions> GetCalculatedTransactionDataAsync(Guid userId) =>
-            await calculatedDataRepository.GetAggregatedTransactionDataAsync(userId);
-
         public async Task<List<CalculatedCategories>> GetCalculatedCategoriesDataAsync(Guid userId) =>
-            await calculatedDataRepository.GetAggregatedCategoriesDataAsync(userId);
+            await calculatedDataRepository.GetCalculatedCategoriesDataAsync(userId);
 
         public async Task DeleteCalculatedDataAsync(Guid userId)
         {
-            await calculatedDataRepository.DeleteAggregatedTransactionDataAsync(userId);
+            await transactionRepository.DeleteAggregatedTransactionDataAsync(userId);
             await calculatedDataRepository.DeleteAggregatedCategoriesDataAsync(userId);
         }
 
         private async Task CalculatedCategoriesAsync(List<Transaction> transactions, Guid userId)
         {
             var groupedTransactions = transactions.GroupBy(x => x.CategoryName);
-            var calculatedTransactionData = await GetCalculatedTransactionDataAsync(userId);
+            var calculatedAggregatedTransactionData = await transactionRepository.GetAggregatedTransactionDataAsync(userId);
             var calculatedCategoriesList = new List<CalculatedCategories>();
 
             foreach (var group in groupedTransactions)
@@ -55,12 +52,12 @@ namespace ZenkoAPI.Services
                     AmountSpent = totalAmount,
                     CategoryName = group.Key,
                     TransactionCount = group.Count(),
-                    PercentOfIncome = Math.Round((totalAmount / calculatedTransactionData.TotalSpend) * 100, 2),
+                    PercentOfIncome = Math.Round((totalAmount / calculatedAggregatedTransactionData.TotalSpend) * 100, 2),
                     UserId = userId
                 };
                 calculatedCategoriesList.Add(calculatedCategory);
             }
-            await calculatedDataRepository.AddAggregatedCategoriesDataAsync(calculatedCategoriesList);
+            await calculatedDataRepository.AddCalculatedCategoriesDataAsync(calculatedCategoriesList);
         }
 
         private async Task<List<Transaction>> GetTransactionDataAsync(Guid userId)
@@ -70,7 +67,7 @@ namespace ZenkoAPI.Services
 
             if (transactions.Count == 0)
             {
-                transactions = await calculatedDataRepository.GetUserTransactionsById(userId);
+                transactions = await transactionRepository.GetTransactionsAsync(userId);
                 cachingService.SetCache(cacheKey, transactions);
                 return transactions;
             }

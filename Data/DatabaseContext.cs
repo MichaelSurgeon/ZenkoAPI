@@ -14,6 +14,6 @@ namespace ZenkoAPI.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<CalculatedCategories> CalculatedCategories { get; set; }
         public DbSet<FileData> FileData { get; set; }
-        public DbSet<AggregatedTransactions> AggregatedTransactions { get; set; }
+        public DbSet<AggregatedTransaction> AggregatedTransactions { get; set; }
     }
 }
