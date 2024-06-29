@@ -1,6 +1,7 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using ZenkoAPI.Data;
 using ZenkoAPI.Dtos;
 using ZenkoAPI.Repositories;
@@ -20,12 +21,14 @@ namespace ZenkoAPI
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<DatabaseContext>(
                 options => options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSQLConnectionString")));
+            builder.Services.AddMemoryCache();
             builder.Services.AddScoped<IUserOperationsService, UserOperationsService>();
             builder.Services.AddScoped<IAccountRepository, AccountRepository>();
             builder.Services.AddScoped<IFileUploadService, FileUploadService>();
             builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
             builder.Services.AddScoped<ICalculationService, CalculationService>();
             builder.Services.AddScoped<IAggregatedDataRepository, AggregatedDataRepository>();
+            builder.Services.AddScoped<ICachingService, CachingService>();
             builder.Services.AddFluentValidationAutoValidation();
             builder.Services.AddFluentValidationClientsideAdapters();
             builder.Services.AddValidatorsFromAssembly(typeof(TransactionDTOValidator).Assembly);

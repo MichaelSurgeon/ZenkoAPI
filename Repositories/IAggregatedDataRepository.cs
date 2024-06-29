@@ -5,6 +5,8 @@ namespace ZenkoAPI.Repositories
     public interface IAggregatedDataRepository
     {
         Task<List<Transaction>> GetUserTransactionsById(Guid userId);
-        Task<bool> AddAggregatedDataAsync(AggregatedTransactions aggregatedTransaction);
+        Task<bool> AddAggregatedTransactionDataAsync(AggregatedTransactions aggregatedTransaction);
+        Task<AggregatedTransactions> GetAggregatedTransactionDataAsync(Guid userId);
+        Task<bool> DeleteAggregatedTransactionDataAsync(Guid userId);
     }
 }

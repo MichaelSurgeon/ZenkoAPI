@@ -3,14 +3,13 @@ using ZenkoAPI.Helpers;
 
 namespace ZenkoAPI.Dtos
 {
-    public class TransactionDto
-    {
-        public string Name { get; set; }
-        public string Amount { get; set; }
-        public string Location { get; set; }
-        public string Date { get; set; }
-        public string Category { get; set; }
-    }
+    public record TransactionDto(
+    string Name,
+    string Amount,
+    string Location,
+    string Date,
+    string Category);
+
 
     public class TransactionDTOValidator : AbstractValidator<TransactionDto>
     {

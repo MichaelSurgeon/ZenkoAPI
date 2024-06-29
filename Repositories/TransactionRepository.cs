@@ -1,17 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ZenkoAPI.Data;
 using ZenkoAPI.Models;
+using ZenkoAPI.Services;
 
 namespace ZenkoAPI.Repositories
 {
-    public class TransactionRepository(DatabaseContext databaseContext) : ITransactionRepository
+    public class TransactionRepository(DatabaseContext databaseContext, ICachingService cachingService, IConfiguration configuration) : ITransactionRepository
     {
         public async Task AddTransactionsToDatabaseAsync(List<Transaction> transactions)
         {
             try
             {
+                var cacheKey = configuration.GetValue<string>("TransactionsCacheKey");
                 await databaseContext.AddRangeAsync(transactions);
                 await databaseContext.SaveChangesAsync();
+                cachingService.ClearCache(cacheKey);
+                cachingService.SetCache(cacheKey, transactions);
             }
             catch (DbUpdateException ex)
             {
