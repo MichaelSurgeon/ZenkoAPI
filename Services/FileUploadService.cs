@@ -16,48 +16,52 @@ namespace ZenkoAPI.Services
             var batchSize = 250;
             List<Transaction> transactionsBatch = [];
 
-            var errors = new List<string>();
-            using (var reader = new StreamReader(fileStream))
-            using (var csvReader = new CsvReader(reader, CultureInfo.InvariantCulture))
+            int rowNumber;
+            using var reader = new StreamReader(fileStream);
+            using var csvReader = new CsvReader(reader, CultureInfo.InvariantCulture);
+            while (await csvReader.ReadAsync())
             {
-                while (await csvReader.ReadAsync())
+                try
                 {
-                    try
+                    rowNumber = csvReader.Parser.Row;
+                    var record = csvReader.GetRecord<TransactionDto>();
+                    var validationResult = await validator.ValidateAsync(record);
+                    if (validationResult.IsValid)
                     {
-                        var record = csvReader.GetRecord<TransactionDto>();
-                        var validationResult = await validator.ValidateAsync(record);
-                        if (validationResult.IsValid)
+                        var transformedTransaction = new Transaction()
                         {
-                            var transformedTransaction = new Transaction()
-                            {
-                                TransactionId = new Guid(),
-                                TransactionName = record.Name,
-                                TransactionAmount = decimal.Parse(record.Amount),
-                                TransactionDate = DateTime.Parse(record.Date).ToUniversalTime(),
-                                TransactionLocation = record.Location,
-                                CategoryName = record.Category,
-                                UserId = userId
-                            };
+                            TransactionId = new Guid(),
+                            TransactionName = record.Name,
+                            TransactionAmount = decimal.Parse(record.Amount),
+                            TransactionDate = DateTime.Parse(record.Date).ToUniversalTime(),
+                            TransactionLocation = record.Location,
+                            CategoryName = record.Category,
+                            UserId = userId
+                        };
 
-                            transactionsBatch.Add(transformedTransaction);
-                            if (transactionsBatch.Count >= batchSize)
-                            {
-                                await transactionRepository.AddTransactionsToDatabaseAsync(transactionsBatch);
-                                transactionsBatch.Clear();
-                            }
+                        transactionsBatch.Add(transformedTransaction);
+                        if (transactionsBatch.Count >= batchSize)
+                        {
+                            await transactionRepository.AddTransactionsToDatabaseAsync(transactionsBatch);
+                            transactionsBatch.Clear();
                         }
                     }
-                    catch (Exception ex)
+                    //temp error logging
+                    foreach (var error in validationResult.Errors)
                     {
-                        Console.WriteLine(ex);
-                        continue;
+                        Console.WriteLine(error + " on row number: " + rowNumber);
                     }
                 }
-                if(transactionsBatch.Count > 0)
+                catch (Exception ex)
                 {
-                    await transactionRepository.AddTransactionsToDatabaseAsync(transactionsBatch);
-                    transactionsBatch.Clear();
+                    Console.WriteLine(ex);
+                    continue;
                 }
+            }
+            if (transactionsBatch.Count > 0)
+            {
+                await transactionRepository.AddTransactionsToDatabaseAsync(transactionsBatch);
+                transactionsBatch.Clear();
             }
         }
 

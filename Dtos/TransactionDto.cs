@@ -25,7 +25,10 @@ namespace ZenkoAPI.Dtos
                 .WithMessage("There has been no date found");
             RuleFor(x => x.Category.ToLower())
                 .Must(AcceptedCategories.categories.Contains)
-                .WithMessage("This category is not accepted");
+                .WithMessage(args => 
+                {
+                    return $"This category is not accepted {args.Category}";
+                });
         }
     }
 }
