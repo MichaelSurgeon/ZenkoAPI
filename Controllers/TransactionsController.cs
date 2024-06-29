@@ -9,7 +9,7 @@ namespace ZenkoAPI.Controllers
     [Route("/api/transactions")]
     public class TransactionsController(ITransactionRepository transactionRepository, IUserOperationsService userOperationsService) : Controller
     {
-        [HttpGet("GetTransactions")]
+        [HttpGet("GetPaginatedTransactions")]
         public async Task<ActionResult<List<Transaction>>> GetTransactions(Guid userId, int pageNumber, int pageSize)
         {
             if (!ModelState.IsValid)
