@@ -16,21 +16,9 @@ namespace ZenkoAPI.Repositories
             cachingService.SetCache(cacheKey, transactions);
         }
 
-        public async Task AddFileMetadataToDatabase(FileData fileInfo)
-        {
-            await databaseContext.FileData.AddAsync(fileInfo);
-            await databaseContext.SaveChangesAsync();
-        }
-
         public async Task AddAggregatedTransactionDataAsync(AggregatedTransaction aggregatedTransaction)
         {
             await databaseContext.AggregatedTransactions.AddAsync(aggregatedTransaction);
-            await databaseContext.SaveChangesAsync();
-        }
-
-        public async Task DeleteFileInformationByUserIdAsync(Guid userId)
-        {
-            await databaseContext.FileData.Where(t => t.UserId == userId).ExecuteDeleteAsync();
             await databaseContext.SaveChangesAsync();
         }
 

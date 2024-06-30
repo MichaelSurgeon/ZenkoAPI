@@ -20,6 +20,5 @@ namespace ZenkoAPI.Repositories
 
         public async Task DeleteAggregatedCategoriesDataAsync(Guid userId) => 
             await databaseContext.CalculatedCategories.Where(x => x.UserId == userId).ExecuteDeleteAsync();
-
     }
 }

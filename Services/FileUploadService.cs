@@ -7,11 +7,11 @@ using ZenkoAPI.Repositories;
 
 namespace ZenkoAPI.Services
 {
-    public class FileUploadService(ITransactionRepository transactionRepository) : IFileUploadService
+    public class FileUploadService(ITransactionRepository transactionRepository, IFileRepository fileRepository) : IFileUploadService
     {
-        public async Task AddTransactionToDatabase(Stream fileStream, Guid userId)
+        public async Task ParseAndAddTransactionToDatabase(Stream fileStream, Guid userId)
         {
-            // could probably speed up inserts for mass amound of data using parrallel batching would be quicker
+            // could probably speed up inserts for mass amount of data using parallel batching it would be quicker
             var validator = new TransactionDTOValidator();
             var batchSize = 250;
             List<Transaction> transactionsBatch = [];
@@ -76,7 +76,7 @@ namespace ZenkoAPI.Services
                 UserId = userId
             };
 
-            await transactionRepository.AddFileMetadataToDatabase(fileMetadata);
+            await fileRepository.AddFileMetadataToDatabase(fileMetadata);
         }
 
         public async Task DeleteTransactionsByIdAsync(Guid userId)

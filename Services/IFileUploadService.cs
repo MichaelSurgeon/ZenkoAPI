@@ -2,7 +2,7 @@
 {
     public interface IFileUploadService
     {
-        Task AddTransactionToDatabase(Stream file, Guid userId);
+        Task ParseAndAddTransactionToDatabase(Stream file, Guid userId);
         Task AddFileMetaDataToDatabaseAsync(IFormFile file, Guid userId);
         Task DeleteTransactionsByIdAsync(Guid userId);
     }

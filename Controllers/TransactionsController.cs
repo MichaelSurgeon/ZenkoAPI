@@ -30,9 +30,9 @@ namespace ZenkoAPI.Controllers
             }
 
             var paginatedTransactions = transactions.OrderBy(x => x.TransactionDate)
-                                            .Skip((pageNumber - 1) * pageSize)
-                                            .Take(pageSize)
-                                            .ToList();
+                                                    .Skip((pageNumber - 1) * pageSize)
+                                                    .Take(pageSize)
+                                                    .ToList();
                                            
             return paginatedTransactions;
         }

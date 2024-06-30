@@ -33,7 +33,7 @@ namespace ZenkoAPI.Controllers
 
             await fileUploadService.DeleteTransactionsByIdAsync(new Guid(userId));
             await fileUploadService.AddFileMetaDataToDatabaseAsync(file, new Guid(userId));
-            await fileUploadService.AddTransactionToDatabase(file.OpenReadStream(), user.UserId);
+            await fileUploadService.ParseAndAddTransactionToDatabase(file.OpenReadStream(), user.UserId);
 
             return Ok();
         }

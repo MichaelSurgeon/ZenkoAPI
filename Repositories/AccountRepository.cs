@@ -15,13 +15,9 @@ namespace ZenkoAPI.Repositories
                 await databaseContext.SaveChangesAsync();
                 return true;
             }
-            catch (DbUpdateException ex)
-            {
-                throw new DbUpdateException("Error adding user to database", ex);
-            }
             catch (Exception ex)
             {
-                throw new Exception("An error occurred while adding user", ex);
+                throw new Exception("Error deleting user from database", ex);
             }
         }
 
@@ -33,46 +29,13 @@ namespace ZenkoAPI.Repositories
                 await databaseContext.SaveChangesAsync();
                 return true;
             }
-            catch (DbUpdateException ex)
-            {
-                throw new DbUpdateException("Error deleting user from database", ex);
-            }
             catch (Exception ex)
             {
-                throw new Exception("An error occurred while deleting user", ex);
+                throw new Exception("Error deleting user from database", ex);
             }
         }
 
-        public async Task<User> GetUserAsync(User user)
-        {
-            try
-            {
-                return await databaseContext.Users.FirstOrDefaultAsync(row => row.Email.ToLower() == user.Email.ToLower());
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new DbUpdateException("Error deleting user from database", ex);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("An error occurred while deleting user", ex);
-            }
-        }
-
-        public async Task<User> GetUserByIdAsync(Guid userId)
-        {
-            try
-            {
-                return await databaseContext.Users.FirstOrDefaultAsync(row => row.UserId == userId);
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new DbUpdateException("Error deleting user from database", ex);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("An error occurred while deleting user", ex);
-            }
-        }
+        public async Task<User> GetUserAsync(User user) => await databaseContext.Users.FirstOrDefaultAsync(row => row.Email.ToLower() == user.Email.ToLower());
+        public async Task<User> GetUserByIdAsync(Guid userId) => await databaseContext.Users.FirstOrDefaultAsync(row => row.UserId == userId);
     }
 }
