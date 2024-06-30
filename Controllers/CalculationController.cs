@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Runtime.CompilerServices;
-using ZenkoAPI.Models;
 using ZenkoAPI.Services;
 
 namespace ZenkoAPI.Controllers
@@ -17,7 +15,7 @@ namespace ZenkoAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = await GetUser(userId);
+            var user = await userOperationsService.GetUserByIdAsync(userId);
             if (user == null)
             {
                 return NotFound("User not found");
@@ -32,30 +30,5 @@ namespace ZenkoAPI.Controllers
 
             return Ok();
         }
-
-        [HttpGet("getCalculatedCategories")]
-        public async Task<ActionResult<List<CalculatedCategories>>> GetCategoriesAggregatedData(Guid userId)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var user = await GetUser(userId);
-            if (user == null)
-            {
-                return NotFound("User not found");
-            }
-
-            var aggregatedCategoriesResult = await calculationService.GetCalculatedCategoriesDataAsync(userId);
-            if (aggregatedCategoriesResult.Count == 0)
-            {
-                return NotFound("No aggregated transactions found");
-            }
-
-            return aggregatedCategoriesResult;
-        }
-
-        private async Task<User> GetUser(Guid userId) => await userOperationsService.GetUserByIdAsync(userId);
     }
 }

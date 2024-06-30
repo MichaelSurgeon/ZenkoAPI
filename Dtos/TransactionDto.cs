@@ -10,7 +10,6 @@ namespace ZenkoAPI.Dtos
     string Date,
     string Category);
 
-
     public class TransactionDTOValidator : AbstractValidator<TransactionDto>
     {
         public TransactionDTOValidator()

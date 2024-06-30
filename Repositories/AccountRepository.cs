@@ -2,7 +2,6 @@
 using ZenkoAPI.Data;
 using ZenkoAPI.Models;
 
-
 namespace ZenkoAPI.Repositories
 {
     public class AccountRepository(DatabaseContext databaseContext) : IAccountRepository
