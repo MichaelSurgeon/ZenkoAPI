@@ -1,9 +1,10 @@
-﻿using ZenkoAPI.Models;
+﻿using ZenkoAPI.Controllers.Helpers;
+using ZenkoAPI.Models;
 using ZenkoAPI.Repositories;
 
 namespace ZenkoAPI.Services
 {
-    public class UserOperationsService(IAccountRepository accountRepository) : IUserOperationsService
+    public class UserOperationsService(IAccountRepository accountRepository, IPasswordHasher passwordHasher) : IUserOperationsService
     {
         public async Task<bool> CreateUserAsync(User user)
         {
@@ -13,7 +14,7 @@ namespace ZenkoAPI.Services
                 Email = user.Email,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
-                Password = user.Password,
+                Password = passwordHasher.HashPassword(user.Password),
                 Address = user.Address
             };
 

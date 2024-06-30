@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ZenkoAPI.Controllers.Helpers;
 using ZenkoAPI.Models;
 using ZenkoAPI.Services;
 
@@ -6,7 +7,7 @@ namespace ZenkoAPI.Controllers
 {
     [ApiController]
     [Route("/api/account")]
-    public class AccountController(IUserOperationsService userOperationsService) : Controller
+    public class AccountController(IUserOperationsService userOperationsService, IPasswordHasher passwordHasher) : Controller
     {
         [HttpPost("createUser")]
         public async Task<ActionResult> CreateUser(User user)
@@ -45,7 +46,7 @@ namespace ZenkoAPI.Controllers
                 return NotFound();
             }
 
-            if (retrievedUser.Password != user.Password)
+            if (!passwordHasher.VerifyPassword(retrievedUser.Password, user.Password))
             {
                 return Unauthorized();
             }

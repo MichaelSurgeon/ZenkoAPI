@@ -1,7 +1,7 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
+using ZenkoAPI.Controllers.Helpers;
 using ZenkoAPI.Data;
 using ZenkoAPI.Dtos;
 using ZenkoAPI.Repositories;
@@ -28,7 +28,9 @@ namespace ZenkoAPI
             builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
             builder.Services.AddScoped<ICalculationService, CalculationService>();
             builder.Services.AddScoped<ICalculationRepository, CalculationRepository>();
+            builder.Services.AddScoped<IFileRepository, FileRepository>();
             builder.Services.AddScoped<ICachingService, CachingService>();
+            builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
             builder.Services.AddFluentValidationAutoValidation();
             builder.Services.AddFluentValidationClientsideAdapters();
             builder.Services.AddValidatorsFromAssembly(typeof(TransactionDTOValidator).Assembly);
