@@ -17,18 +17,18 @@ namespace ZenkoAPI.Controllers
 
             if (file.ContentType != "text/csv")
             {
-                return BadRequest("Invaild FileType Please Only Upload CSV format");
+                return BadRequest();
             }
 
             if (file.Length > 500_000)
             {
-                return BadRequest($"File is to large it must be under 500kb");
+                return BadRequest();
             }
 
             var user = await userOperationsService.GetUserByIdAsync(new Guid(userId));
             if (user == null)
             {
-                return BadRequest("User not found");
+                return BadRequest();
             }
 
             await fileUploadService.DeleteTransactionsByIdAsync(new Guid(userId));

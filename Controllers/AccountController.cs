@@ -33,7 +33,7 @@ namespace ZenkoAPI.Controllers
         }
 
         [HttpGet("getUser")]
-        public async Task<ActionResult<User>> GetUser(User user)
+        public async Task<ActionResult<User>> GetUser([FromQuery] User user)
         {
             if (!ModelState.IsValid)
             {

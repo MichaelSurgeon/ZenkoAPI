@@ -18,14 +18,14 @@ namespace ZenkoAPI.Controllers
             var user = await userOperationsService.GetUserByIdAsync(userId);
             if (user == null)
             {
-                return NotFound("User not found");
+                return NotFound();
             }
 
             await calculationService.DeleteCalculatedDataAsync(userId);    
             var result = await calculationService.CreateCalculatedData(userId);
             if(!result)  
             {
-                return BadRequest("Error occured during calcualtion");
+                return NotFound();
             }
 
             return Ok();
