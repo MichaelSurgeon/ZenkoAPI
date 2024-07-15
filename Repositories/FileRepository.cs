@@ -17,5 +17,9 @@ namespace ZenkoAPI.Repositories
             await databaseContext.FileData.Where(t => t.UserId == userId).ExecuteDeleteAsync();
             await databaseContext.SaveChangesAsync();
         }
+
+        public async Task<List<FileData>> GetFileInfoAsync(Guid userId)
+            => await databaseContext.FileData.Where(t => t.UserId == userId).ToListAsync();
+
     }
 }

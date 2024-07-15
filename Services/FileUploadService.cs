@@ -80,9 +80,10 @@ namespace ZenkoAPI.Services
         }
 
         public async Task DeleteTransactionsByIdAsync(Guid userId)
-        {
-            await transactionRepository.DeleteTransactionsByUserIdAsync(userId);
-        }
+            => await transactionRepository.DeleteTransactionsByUserIdAsync(userId);
+
+        public async Task<List<FileData>> GetFileUploadInformationAsync(Guid userId)
+            => await fileRepository.GetFileInfoAsync(userId);
 
         private sealed class TransactionDtoMap : ClassMap<TransactionDto>
         {

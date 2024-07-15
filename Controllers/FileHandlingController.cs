@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ZenkoAPI.Dtos;
+using ZenkoAPI.Models;
 using ZenkoAPI.Services;
 
 namespace ZenkoAPI.Controllers
@@ -28,7 +30,7 @@ namespace ZenkoAPI.Controllers
             var user = await userOperationsService.GetUserByIdAsync(new Guid(userId));
             if (user == null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
             await fileUploadService.DeleteTransactionsByIdAsync(new Guid(userId));
@@ -36,6 +38,30 @@ namespace ZenkoAPI.Controllers
             await fileUploadService.ParseAndAddTransactionToDatabase(file.OpenReadStream(), user.UserId);
 
             return Ok();
+        }
+
+        [HttpGet("getFileData")]
+        public async Task<ActionResult<List<FileDataDto>>> GetFileData(string userId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            var user = await userOperationsService.GetUserByIdAsync(new Guid(userId));
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var result = await fileUploadService.GetFileUploadInformationAsync(new Guid(userId));
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            var returnObject = result.Select(x => new FileDataDto(x.FileSize.ToString(), x.FileName, x.UploadTime.ToString())).ToList();
+            return returnObject;
         }
     }
 }

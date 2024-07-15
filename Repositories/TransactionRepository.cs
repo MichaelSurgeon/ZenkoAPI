@@ -28,10 +28,10 @@ namespace ZenkoAPI.Repositories
         public async Task DeleteAggregatedTransactionDataAsync(Guid userId) =>
                 await databaseContext.AggregatedTransactions.Where(x => x.UserId == userId).ExecuteDeleteAsync();
 
-        public async Task<List<Transaction>> GetTransactionsAsync(Guid userId) 
+        public async Task<List<Transaction>> GetTransactionsAsync(Guid userId)
             => await databaseContext.Transactions.Where(x => x.UserId == userId).ToListAsync();
 
-        public async Task<AggregatedTransaction> GetAggregatedTransactionDataAsync(Guid userId) 
+        public async Task<AggregatedTransaction> GetAggregatedTransactionDataAsync(Guid userId)
             => await databaseContext.AggregatedTransactions.Where(x => x.UserId == userId).FirstAsync();
 
     }
