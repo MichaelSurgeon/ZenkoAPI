@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Transactions;
+using System.Xml.Linq;
+using ZenkoAPI.Dtos;
 using ZenkoAPI.Models;
 using ZenkoAPI.Repositories;
 using ZenkoAPI.Services;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ZenkoAPI.Controllers
 {
@@ -10,7 +14,7 @@ namespace ZenkoAPI.Controllers
     public class TransactionsController(ITransactionRepository transactionRepository, IUserOperationsService userOperationsService) : Controller
     {
         [HttpGet("GetPaginatedTransactions")]
-        public async Task<ActionResult<List<Transaction>>> GetTransactions(Guid userId, int pageNumber, int pageSize)
+        public async Task<ActionResult<PaginatedTransactionResponse>> GetTransactions(Guid userId, int pageNumber, int pageSize)
         {
             if (!ModelState.IsValid)
             {
@@ -29,12 +33,27 @@ namespace ZenkoAPI.Controllers
                 return NotFound("No transactions found");
             }
 
-            var paginatedTransactions = transactions.OrderBy(x => x.TransactionDate)
+            var mappedTransactions = transactions.Select(x => new TransactionDto(
+                   x.TransactionName,
+                   x.TransactionAmount.ToString(),
+                   x.TransactionLocation,
+                   x.CategoryName,
+                   x.TransactionDate.ToString()
+            )).ToList();
+
+            var pageCount = (int)Math.Ceiling(mappedTransactions.Count / (double)pageSize);
+            var paginatedTransactions = mappedTransactions.OrderBy(x => x.Date)
                                                     .Skip((pageNumber - 1) * pageSize)
                                                     .Take(pageSize)
                                                     .ToList();
-                                           
-            return paginatedTransactions;
+
+            var response = new PaginatedTransactionResponse()
+            {
+                Transactions = paginatedTransactions,
+                TotalPages = (int)Math.Ceiling(mappedTransactions.Count / (double)pageSize)
+            };
+
+            return response;
         }
 
         [HttpGet("GetAggregatedTransactionInfo")]
