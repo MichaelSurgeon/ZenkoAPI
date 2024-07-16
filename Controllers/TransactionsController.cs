@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Transactions;
-using System.Xml.Linq;
 using ZenkoAPI.Dtos;
 using ZenkoAPI.Models;
 using ZenkoAPI.Repositories;
 using ZenkoAPI.Services;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ZenkoAPI.Controllers
 {
