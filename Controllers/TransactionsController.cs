@@ -34,8 +34,8 @@ namespace ZenkoAPI.Controllers
                    x.TransactionName,
                    x.TransactionAmount.ToString(),
                    x.TransactionLocation,
-                   x.CategoryName,
-                   x.TransactionDate.ToString()
+                   x.TransactionDate.ToString("g"),
+                   x.CategoryName
             )).ToList();
 
             var pageCount = (int)Math.Ceiling(mappedTransactions.Count / (double)pageSize);
