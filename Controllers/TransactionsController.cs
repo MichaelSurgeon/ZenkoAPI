@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Transactions;
 using ZenkoAPI.Dtos;
 using ZenkoAPI.Models;
 using ZenkoAPI.Repositories;
@@ -51,6 +53,39 @@ namespace ZenkoAPI.Controllers
             };
 
             return response;
+        }
+
+        [HttpGet("GetAllTransactionsByDate")]
+        public async Task<ActionResult<List<SpendPerDayDto>>> GetAllTransactions(Guid userId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            var user = await GetUser(userId);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            var transactions = await transactionRepository.GetTransactionsAsync(userId);
+            if (transactions.Count == 0)
+            {
+                return NotFound("No transactions found");
+            }
+
+            var spendPerDay = transactions
+              .GroupBy(t => t.TransactionDate)
+              .Select(group => new SpendPerDayDto
+              {
+                  Date = group.Key,
+                  Amount = group.Sum(t => t.TransactionAmount)
+              })
+              .OrderBy(x => x.Date)
+              .ToList();
+
+            return spendPerDay;
         }
 
         [HttpGet("GetAggregatedTransactionInfo")]

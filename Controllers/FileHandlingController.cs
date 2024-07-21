@@ -60,7 +60,8 @@ namespace ZenkoAPI.Controllers
                 return NotFound();
             }
 
-            var returnObject = result.Select(x => new FileDataDto(x.FileSize.ToString(), x.FileName, x.UploadTime.ToString())).ToList();
+            var returnObject = result.Select(x => new FileDataDto(x.FileSize.ToString(), x.FileName, x.UploadTime.ToString()))
+                                     .OrderByDescending(x => x.FileDate).ToList();
             return returnObject;
         }
     }
