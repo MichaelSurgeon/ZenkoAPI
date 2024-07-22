@@ -23,6 +23,20 @@ namespace ZenkoAPI.Services
 
         public async Task<User> GetUserAsync(User user) => await accountRepository.GetUserAsync(user);
         public async Task<User> GetUserByIdAsync(Guid userId) => await accountRepository.GetUserByIdAsync(userId);
+        public async Task<bool> UpdateUserAsync(User newUser, User currentUser)
+        {
+            var updatedUser = new User()
+            {
+                UserId = currentUser.UserId,
+                Email = newUser.Email ?? currentUser.Email,
+                FirstName = newUser.FirstName ?? currentUser.FirstName,
+                LastName = newUser.LastName ?? currentUser.LastName,
+                Address = newUser.Address ?? currentUser.Address,
+                Password = passwordHasher.HashPassword(newUser.Password) ??passwordHasher.HashPassword(currentUser.Password)
+            };
+
+            return await accountRepository.UpdateUserAsync(updatedUser);
+        }
         public async Task<bool> DeleteUserAsync(User user) => await accountRepository.DeleteUserFromDatabaseAsync(user);
     }
 }

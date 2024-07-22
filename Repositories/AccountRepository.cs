@@ -34,7 +34,21 @@ namespace ZenkoAPI.Repositories
             }
         }
 
-        public async Task<User> GetUserAsync(User user) => await databaseContext.Users.FirstOrDefaultAsync(row => row.Email.ToLower() == user.Email.ToLower());
-        public async Task<User> GetUserByIdAsync(Guid userId) => await databaseContext.Users.FirstOrDefaultAsync(row => row.UserId == userId);
+        public async Task<bool> UpdateUserAsync(User user)
+        {
+            try
+            {
+                databaseContext.Update(user);
+                await databaseContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error updating user in database", ex);
+            }
+        }
+
+        public async Task<User> GetUserAsync(User user) => await databaseContext.Users.AsNoTracking().FirstOrDefaultAsync(row => row.Email.ToLower() == user.Email.ToLower());
+        public async Task<User> GetUserByIdAsync(Guid userId) => await databaseContext.Users.AsNoTracking().FirstOrDefaultAsync(row => row.UserId == userId);
     }
 }

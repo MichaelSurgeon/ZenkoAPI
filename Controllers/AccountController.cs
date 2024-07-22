@@ -10,7 +10,7 @@ namespace ZenkoAPI.Controllers
     public class AccountController(IUserOperationsService userOperationsService, IPasswordHasher passwordHasher) : Controller
     {
         [HttpPost("createUser")]
-        public async Task<ActionResult> CreateUser(User user)
+        public async Task<ActionResult> CreateUserAsync(User user)
         {
             if (!ModelState.IsValid)
             {
@@ -33,7 +33,7 @@ namespace ZenkoAPI.Controllers
         }
 
         [HttpGet("getUser")]
-        public async Task<ActionResult<User>> GetUser([FromQuery] User user)
+        public async Task<ActionResult<User>> GetUserAsync([FromQuery] User user)
         {
             if (!ModelState.IsValid)
             {
@@ -54,8 +54,31 @@ namespace ZenkoAPI.Controllers
             return retrievedUser;
         }
 
+        [HttpPatch("updateUser")]
+        public async Task<ActionResult> UpdateUserAsync(User user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            var retrievedUser = await userOperationsService.GetUserByIdAsync(user.UserId);
+            if (retrievedUser == null)
+            {
+                return NotFound();
+            }
+
+            var result = await userOperationsService.UpdateUserAsync(user, retrievedUser);
+            if (!result)
+            {
+                return StatusCode(500);
+            }
+
+            return Ok();
+        }
+
         [HttpPost("deleteUser")]
-        public async Task<ActionResult> DeleteUser(User user)
+        public async Task<ActionResult> DeleteUserAsync(User user)
         {
             if (!ModelState.IsValid)
             {
@@ -64,7 +87,7 @@ namespace ZenkoAPI.Controllers
 
             var retrievedUser = await userOperationsService.GetUserAsync(user);
             if (retrievedUser == null)
-            { 
+            {
                 return NotFound();
             }
 
