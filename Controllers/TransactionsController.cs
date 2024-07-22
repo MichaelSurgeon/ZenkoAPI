@@ -89,7 +89,7 @@ namespace ZenkoAPI.Controllers
         }
 
         [HttpGet("GetAggregatedTransactionInfo")]
-        public async Task<ActionResult<AggregatedTransaction>> GetAggregatedTransactionInfo(Guid userId)
+        public async Task<ActionResult<AggregatedTransaction>> GetAggregatedTransactionInfoAsync(Guid userId)
         {
             if (!ModelState.IsValid)
             {

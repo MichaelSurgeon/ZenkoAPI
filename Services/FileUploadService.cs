@@ -71,7 +71,7 @@ namespace ZenkoAPI.Services
             {
                 FileId = new Guid(),
                 FileName = file.FileName,
-                FileSize = file.Length,
+                FileSize = file.Length >> 10,
                 UploadTime = DateTime.UtcNow,
                 UserId = userId
             };
